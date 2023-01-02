@@ -25,15 +25,9 @@ const createThread = async (req: express.Request, res: express.Response) => {
     );
     const threadId = createChatThreadResult.chatThread?.id;
     return res.status(200).json({ success: true, data: threadId });
-  } catch (err) {
-    if (
-      JSON.parse(JSON.stringify(err)).message ===
-      "Invalid token specified: Cannot read properties of undefined (reading 'replace')"
-    ) {
-     return res.status(401).json({
-        success: false,
-        message: "UnAuthorized",
-      });
+  } catch (err:any) {
+    if(err.statusCode === 401){
+      return res.status(401).json({success: false, message: "UnAuthorize Access"})
     }
     return res
       .status(400)

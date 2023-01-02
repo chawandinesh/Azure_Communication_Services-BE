@@ -28,7 +28,10 @@ const getParticipantsFromThread = async (
       data: tempParticipants,
       message: "Successfully read the participants",
     });
-  } catch (err) {
+  } catch (err:any) {
+    if(err.statusCode === 401){
+      return res.status(401).json({success: false, message: "UnAuthorize Access"})
+    }
     return res.status(400).json({
       success: false,
       message: "Unable to add participant",

@@ -8,13 +8,13 @@ import createUser from './users/createUsers';
 import getUsers from './users/getUsers';
 import deleteUsers from './users/deleteUsers'
 //threads
-import createThread from './chatThreads/createChatThread';
-import getChatThreads from './chatThreads/getChatThreads';
+import createThread from './chatThreads/threads/createChatThread';
+import getChatThreads from './chatThreads/threads/getChatThreads';
 //message
 import sendMessage from './messages/sendMessage';
 import receiveMessage from './messages/receiveMessage';
-import addParticipantToThread from './chatThreads/addParticipantToThread';
-import getParticipantsFromThread from './chatThreads/getParticipantsFromThread';
+import addParticipantToThread from './chatThreads/participants/addParticipantToThread';
+import getParticipantsFromThread from './chatThreads/participants/getParticipantsFromThread';
 
 
 require('dotenv').config()

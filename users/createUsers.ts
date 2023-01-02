@@ -49,7 +49,10 @@ const createUser = (req: express.Request, res: express.Response) => {
     });
   };
 
-  main().catch((error) => {
+  main().catch((err) => {
+    if(err.statusCode === 401){
+      return res.status(401).json({success: false, message: "UnAuthorize Access"})
+    }
     res.status(400).json({ success: false, message: "Failed to save user" });
   });
 };

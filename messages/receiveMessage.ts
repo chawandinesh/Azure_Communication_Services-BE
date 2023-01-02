@@ -25,7 +25,10 @@ const receiveMessage = async (req: express.Request, res: express.Response) => {
       messages: temp,
       message: "successfully received",
     });
-  } catch (err) {
+  } catch (err:any) {
+    if(err.statusCode === 401){
+      return res.status(401).json({success: false, message: "UnAuthorize Access"})
+    }
     return res
       .status(400)
       .json({ success: false, message: "Unable to send message" });
