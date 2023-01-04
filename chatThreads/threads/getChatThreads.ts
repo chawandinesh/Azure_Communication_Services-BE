@@ -13,7 +13,7 @@ const getChatThreads = async (req: express.Request, res: express.Response) => {
         );
       
         const threads = chatClient.listChatThreads();
-      
+        temp = []
         for await (const thread of threads) {
           temp.push(thread);
           // your code here
