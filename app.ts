@@ -16,6 +16,7 @@ import receiveMessage from './messages/receiveMessage';
 import addParticipantToThread from './chatThreads/participants/addParticipantToThread';
 import getParticipantsFromThread from './chatThreads/participants/getParticipantsFromThread';
 import deleteChatThread from './chatThreads/threads/deleteChatThread';
+import removeParticipantFromThread from './chatThreads/participants/removeParticipantFromThread';
 
 
 require('dotenv').config()
@@ -47,8 +48,11 @@ app.delete("/users", deleteUsers)
 app.post("/createThread", createThread)
 app.get("/getThreads", getChatThreads)
 app.delete("/deleteThread/:id", deleteChatThread)
+
+//participants
 app.post("/addParticipantToThread", addParticipantToThread)
 app.get("/getParticipantFromThread", getParticipantsFromThread)
+app.delete("/removeParticipantFromThread", removeParticipantFromThread)
 
 //messages
 app.post("/sendMessage", sendMessage) 

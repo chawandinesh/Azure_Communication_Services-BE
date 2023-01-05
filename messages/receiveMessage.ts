@@ -15,6 +15,7 @@ const receiveMessage = async (req: express.Request, res: express.Response) => {
     let chatThreadClient = chatClient.getChatThreadClient(thread);
 
     const messages = chatThreadClient.listMessages();
+    temp = []
     for await (const message of messages) {
       temp.push(message);
       // your code here
